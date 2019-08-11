@@ -104,4 +104,18 @@ public class Enrollment extends Persistence {
 		this.gender = gender;
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		return "Enrollment "
+				+ "["
+				+ "phoneNumber=" + phoneNumber + ", "
+				+ "firstName=" + firstName + ", "
+				+ "lastName=" + lastName + ", "
+				+ "email=" + email + ", "
+				+ "birthDate=" + birthDate + ", "
+				+ "gender=" + gender + ", "
+				+ "id=" + getId() + "]";
+	}
+	
 }
