@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout_login">
+<head>
+
+</head>
+<body class="hold-transition login-page"  layout:fragment="login-container">
+	<div class="login-box">
+		<div class="login-box-body">
+			<div th:if="${param.error}" class="alert alert-danger">
+				<strong>Authentication failed!</strong> Please check your username or password and try again.
+			</div>
+			<div th:if="${param.logout}" class="alert alert-success">You have been signed out.</div>
+			<div th:if="${statusMessageKey}" class="alert alert-success"><th:block th:text="${statusMessageKey}" /></div>
+			<p class="login-box-msg">Enter your username and password</p>
+			<form th:action="@{/login}" method="post" onsubmit="return checkForm(this);">
+				<div class="form-group has-feedback">
+					<input type="text" name="username" class="form-control" placeholder="Username" required="required"/>
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<input type="submit" id="submit" class="btn bg-purple btn-block btn-flat" value="Sign In" />
+					</div>						
+				</div>
+			</form>
+			<br />
+			<a th:href="@{/enrollment}" class="text-center">Register</a>
+		</div>
+		<div class="login-box-footer text-center">
+			<strong>Created by <a href="https://github.com/ariesp" target="_blank">ariesp</a></strong>
+		</div>
+	</div>
+	
+	<th:block layout:fragment="dashboard_js_addition">				
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+
+			function checkForm(form) {
+				form.submit.disabled = true;
+				form.submit.value = "Please wait...";
+				
+				return true;
+			}
+
+			/*]]>*/
+		</script>
+    </th:block>
+</body>
+</html>

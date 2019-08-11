@@ -1,0 +1,62 @@
+<th:block th:fragment="dashboard_js" xmlns:th="http://www.w3.org/1999/xhtml">	    
+    <!-- jQuery 3.3.1 -->
+    <script th:src="@{/assets/theme/bower_components/jquery/dist/jquery.min.js}"></script>
+    
+    <!-- Bootstrap 3.3.7 -->
+    <script th:src="@{/assets/theme/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+    
+    <!-- Sparkline -->
+    <script th:src="@{/assets/theme/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
+    
+    <!-- jvectormap -->
+    <script th:src="@{/assets/theme/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js}"></script>
+    <script th:src="@{/assets/theme/plugins/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+    
+    <!-- jQuery Knob Chart -->
+    <script th:src="@{/assets/theme/bower_components/jquery-knob/dist/jquery.knob.min.js}"></script>
+    
+    <!-- Bootstrap WYSIHTML5 -->
+    <script th:src="@{/assets/theme/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+    
+    <!-- daterangepicker -->
+    <script th:src="@{/assets/theme/bower_components/moment/min/moment.min.js}"></script>
+    <script th:src="@{/assets/theme/bower_components/bootstrap-daterangepicker/daterangepicker.js}"></script>
+    
+    <!-- datepicker -->
+    <script th:src="@{/assets/theme/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js}"></script>
+    
+    <!-- datetimepicker -->
+    <script th:src="@{/assets/theme/plugins/timepicker/bootstrap-timepicker.min.js}"></script>
+    
+    <!-- Slimscroll -->
+    <script th:src="@{/assets/theme/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+    
+    <!-- FastClick -->
+    <script th:src="@{/assets/theme/bower_components/fastclick/lib/fastclick.js}"></script>
+    
+    <!-- AdminLTE App -->
+    <script th:src="@{/assets/theme/dist/js/adminlte.min.js}"></script>
+    
+    <!-- iCheck -->
+    <script th:src="@{/assets/theme/plugins/iCheck/icheck.min.js}"></script>
+    <script>
+      $(function () {
+        $('input').iCheck({
+          radioClass: 'iradio_minimal-purple'
+        });
+      });
+    </script>
+    
+    <script th:src="@{/assets/mreg/js/autoNumeric.js}"></script>
+    
+    <!-- InputMask -->
+    <script th:src="@{/assets/theme/plugins/input-mask/jquery.inputmask.js}"></script>
+    <script th:src="@{/assets/theme/plugins/input-mask/jquery.inputmask.date.extensions.js}"></script>
+    <script th:src="@{/assets/theme/plugins/input-mask/jquery.inputmask.extensions.js}"></script>
+    
+    <!-- Mask -->
+	<script th:src="@{/assets/mreg/js/jquery.mask.js}"></script>
+    
+    <script th:src="@{/assets/mreg/js/mreg.js}"></script>
+    
+</th:block>

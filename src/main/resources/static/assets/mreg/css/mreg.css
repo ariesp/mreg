@@ -1,0 +1,41 @@
+.auto {
+	text-align:right;
+}
+
+.maskPrice {
+	text-align:right;
+}
+
+.margin_top_25px {
+    margin-top: 25px;
+}
+
+.login-box-footer {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.splash {
+    position: fixed;
+    z-index: 2000;
+    background: #e9eaed;
+    color: gray;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.splash-title {
+    text-align: center;
+    max-width: 500px;
+    margin: 20% auto;
+    padding: 20px
+}
+
+.splash-title p {
+    font-size: 15px;    
+}
