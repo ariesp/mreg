@@ -15,6 +15,7 @@ public interface RequestMappingContant {
 	static final String REDIRECT = "redirect:";
 	static final String API = "/api";
 	static final String ENROLLMENT = "/enrollment";
+	static final String REGISTER = "/register";
 	static final String FIND_ENTRIES = "/findEntries";
 	static final String PARAM_ID = "/{id}";
 	static final String PARAM_USER_ID = "/{userId}";

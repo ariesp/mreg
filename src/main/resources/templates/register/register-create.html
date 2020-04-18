@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://github.com/dandelion/datatables" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout_portal">
+<head>
+	<title>MReg | Register</title>
+</head>
+<body>
+	<div layout:fragment="dashboard_content">
+		<!-- Content Header (Page header) -->
+		<section class="content-header" th:if="${errorMessageKey}">
+		  	<div class="callout callout-danger">
+			    	<h4><span class="alert-icon"><i class="fa fa-warning"></i></span> Warning</h4>
+			    	<th:block th:text="${errorMessageKey}"></th:block>
+		  	</div>
+	  	</section>
+	
+		<!-- Main content -->
+		<section class="content">
+			<div class="register-box" style="margin-top: 1px;">
+				<div class="register-box-body">
+					<p class="login-box-msg text-purple">Registration</p>
+					<form id="enrollmentform" role="form" th:action="@{/register/save}" th:object="${registerForm}" method="post" onsubmit="return checkForm(this);">
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('fullName')} ? 'has-error'">
+							<label for="fullName" class="help-block small" th:each="err : ${#fields.errors('fullName')}" th:text="${err}"></label>
+							<input class="form-control" type="text" th:field="*{fullName}" placeholder="Full Name" required="required" />
+							<span class="glyphicon glyphicon-tag form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('username')} ? 'has-error'">
+							<label for="username" class="help-block small" th:each="err : ${#fields.errors('username')}" th:text="${err}"></label>
+							<input class="form-control" type="text" th:field="*{username}" placeholder="Username" required="required" />
+							<span class="glyphicon glyphicon-tag form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('phoneNumber')} or ${errorPhoneNumber} != null ? 'has-error'">
+							<label for="phoneNumber" class="help-block small" th:each="err : ${#fields.errors('phoneNumber')}" th:text="${err}"></label>
+							<label for="phoneNumber" class="help-block small" th:if="${errorPhoneNumber} != null" th:text="${errorPhoneNumber}"></label>
+							<input class="form-control phone" type="text" th:field="*{phoneNumber}" placeholder="Mobile Number" required="required" />
+							<span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('email')} or ${errorEmail} != null ? 'has-error'">
+							<label for="email" class="help-block small" th:each="err : ${#fields.errors('email')}" th:text="${err}"></label>
+							<label for="email" class="help-block small" th:if="${errorEmail} != null" th:text="${errorEmail}"></label>
+							<input class="form-control" type="email" th:field="*{email}" placeholder="Email" required="required" />
+							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('address')} ? 'has-error'">
+							<label for="address" class="help-block small" th:each="err : ${#fields.errors('address')}" th:text="${err}"></label>
+							<input class="form-control" type="text" th:field="*{address}" placeholder="Address" required="required" />
+							<span class="glyphicon glyphicon-tag form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
+							<label for="password" class="help-block small" th:each="err : ${#fields.errors('password')}" th:text="${err}"></label>
+							<input class="form-control" type="password" th:field="*{password}" placeholder="Password" required="required" />
+							<span class="glyphicon glyphicon-tag form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback" th:classappend="${#fields.hasErrors('verifyPassword')} ? 'has-error'">
+							<label for="verifyPassword" class="help-block small" th:each="err : ${#fields.errors('verifyPassword')}" th:text="${err}"></label>
+							<input class="form-control" type="password" th:field="*{verifyPassword}" placeholder="Confirm Password" required="required" />
+							<span class="glyphicon glyphicon-tag form-control-feedback"></span>
+						</div>
+						
+						<div class="row">
+                           	<div class="form-group text-center">                           	                            
+                             	<input type="submit" id="submit" class="btn btn-flat bg-purple margin" value="Register" />	                            			                        
+                       		</div>							
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<th:block layout:fragment="dashboard_js_addition">				
+	    <script th:inline="javascript">
+	    	/*<![CDATA[*/
+   			   	$(document).ready(function() {    		        
+		        	$("#address").addClass("active");
+				});
+    	
+   			   	$(".phone").mask("0000-0000-0000-0");
+    	
+   			    function checkForm(form) {
+   			      	form.submit.disabled = true;
+   			      	form.submit.value = "Please wait...";
+   			      	
+   			     	$("#enrollmentform :input").prop("readonly", true);
+   			      	$("#phoneNumber").val($("#phoneNumber").unmask().val());
+   			      	return true;
+   			    }
+		    /*]]>*/
+	    </script>
+    </th:block>
+</body>
+</html>
